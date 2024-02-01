@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+}
+
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    height: 100vh;
+    padding: 0 1.7rem;
+    color: #050505;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: white;
+    border-right: solid rgb(247, 237, 237);
+    cursor: pointer;
+}
+
+.sidebar:hover{
+    width: 240px;
+    transition: 0.5s;
+}
+
+.main-content{
+    width: 92%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.logo-text {
+    margin-left: 22px;
+}
+
+.small-text {
+    font-size: 10px; 
+}
+
+.menu{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+}
+
+.menu list-style:hover,
+.active {
+    background: #84397F;
+    color: #fff;
+}
+
+.menu a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu-item span{
+    overflow: hidden;
+}
+
+.menu a i{
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    transition: background-color 0.5s, color 0.5s, padding 0.5s;
+  
+}
+
+.menu-item .small-text {
+    font-size: 13px; 
+}
+
+.menu-item span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.menu-item:hover {
+    background-color: #000;
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.logout{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#clock 
+{
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.today {
+    background-color: #b3d7ff;
+    color: #333;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: #fff; /* Set your preferred background color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add border-radius if desired */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.modal-header {
+    background-color: #f8f9fa; /* Set your preferred header background color */
+    border-bottom: 1px solid #dee2e6; /* Add border-bottom for separation */
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.modal-title {
+    font-size: 1.5rem; /* Adjust title font size */
+    font-weight: bold; /* Adjust title font weight */
+}
+
+.modal-body {
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6; /* Add border-top for separation */
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+/* Custom style for horizontal buttons */
+.horizontal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-fluid.bg-primary {
+    background: linear-gradient(to bottom, #007bff, #0056b3); 
+}
+
+.no-bold {
+    font-weight: normal;
+    font-size: 20px; 
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px; 
+}
+
+.card-title {
+    font-size: 18px; 
+    margin-bottom: 0; 
+}
+
+.card-text{
+    font-size: 15px;
+}
+
+.card-text:last-child {
+    align-self: flex-start;
+}
+
+/* Estilos para el icono en la tarjeta */
+.card-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+.text-orange {
+    color: orange; 
+}
+
+.text-yellow {
+    color: rgb(214, 214, 5); 
+}
+
+.text-blue{
+    color: rgb(0, 204, 255);
+}
+
+/* Estilo para el contenedor blanco */
+.bg-cream {
+    max-width: 1100px; 
+    margin: 0 auto; 
+    border: 1px solid rgb(247, 237, 237); 
+    padding: 20px; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Estilo para "Ausencia y Retardos" */
+.container-fluid.bg-cream h2 {
+    font-size: 22px; 
+    font-weight: 500;
+}
+
+.info-text {
+    text-align: left; 
+    font-size: 14px; 
+    margin-bottom: 0;
+    margin-left: 0; 
+    padding-left: 0; 
+    display: inline-block; 
+    width: auto; 
+}
+
+/* Estilo para el botÃģn "Sincronizar" */
+.btn-gray-light {
+    background-color: #bdb9b9dc !important; 
+    border-radius: 10px !important; 
+    color: #333 !important; 
+}
+
+.btn-gray-light:hover {
+    background-color: #ddd !important; 
+}
+
+/* Estilo para el botÃģn "Solicitar Ausencia" */
+.btn-purple-light {
+    background-color: #84397F !important; 
+    border-color: #84397F !important; 
+    color: #fff !important; 
+    border-radius: 10px !important; 
+}
+
+.custom-btn {
+    background-color: #84397F;
+    color: #ffffff; 
+    border: 1px solid #84397F; 
+}
+
+.btn-purple-light:hover {
+    background-color: rgba(132, 57, 127, 0.8) !important; 
+    color: #0a0a0a !important; 
+}
+
+/* Estilos para los calendarios */
+.calendar {
+    border: 1px solid #f7eded;
+    padding: 5px;
+    text-align: center;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    max-width: 220px;
+}
+
+.calendar h3 {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+    border: 1px solid #f7eded;
+    padding: 3px;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Estilos para los dÃ­as de la semana */
+.calendar th {
+    background-color: #f7f7f7;
+    color: #555;
+}
+
+/* Estilos para el mes de enero */
+.calendar h3 {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Estilos para los nÃšmeros de los dÃ­as */
+.calendar td {
+    color: #000;
+}
+
+.calendar th {
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        padding: 0;
+    }
+    .menu li {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
