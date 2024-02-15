@@ -106,19 +106,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid bg-cream py-3">
-<div class="container">
-    <div class="row">
-    <div class="col-md-6 ms-auto text-md-end">
-    </div>
-    <div class="col-md-6 ms-auto text-md-end">
-    </div>
-    </div>
-</div>
-            <br>
-<br>
+        </div>
 @yield('content')
-</div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{asset('main.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

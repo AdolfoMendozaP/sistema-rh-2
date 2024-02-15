@@ -195,33 +195,6 @@
         </div>
     </div>
 </div>
-<div class="col-md-3">
-        <div class="card bg-white">
-        <div class="card-body">
-    <h5 class="card-title text-secondary">REPORTES DE ASISTENCIAS</h5>
-    <hr>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>Hora Entrada</th>
-                    <th>Hora Salida</th>
-                    <th>Nombre Completo</th>
-                </tr>
-            </thead>
-            <tbody id="asistenciasTableBody"></tbody>
-        </table>
-    </div>
-    <p class="card-text mt-2"><strong><a href="{{ route('asistencia.index') }}">Ver más...</a></strong></p>
-    <p class="card-text text-secondary"></p>
-</div>
-            <div class="card-icon">
-                <i class="fas fa-clock text-blue"></i>
-            </div>
-        </div>
-    </div>
     </div>
 </div>
 <footer class="footer mt-auto py-3">

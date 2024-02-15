@@ -1,31 +1,51 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card bg-white">
+@extends('perfil.welcome')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Perfil de Empleado') }}</div>
+
                 <div class="card-body">
-                    <h5 class="card-title text-secondary">PUESTO</h5>
-                    <p class="card-text"><strong>{{ $puesto }}</strong></p>
-                    @if ($empleado)
-                        <p class="card-text text-secondary">Área de {{ $empleado->nombreCompleto() }}</p>
-                        <p class="card-text text-secondary">Correo Electrónico: {{ $empleado->email }}</p>
-                        <p class="card-text text-secondary">Folio: {{ $empleado->folio }}</p>
-                        <p class="card-text text-secondary">Fecha de Alta: {{ $empleado->alta }}</p>
-                        <p class="card-text text-secondary">Fecha de Término: {{ $empleado->termino }}</p>
-                        <p class="card-text text-secondary">Status: {{ $empleado->status }}</p>
-                        <p class="card-text text-secondary">Turno de Entrada: {{ $empleado->turnoEntrada }}</p>
-                        <p class="card-text text-secondary">Turno de Salida: {{ $empleado->turnoSalida }}</p>
-                        <p class="card-text text-secondary">Puesto: {{ $empleado->puesto }}</p>
-                        <p class="card-text text-secondary">Departamento: {{ $empleado->departamento->nombreDep }}</p>
-                        <!-- Agrega más detalles según tus necesidades -->
-                    @else
-                        <p class="card-text text-secondary">Área no asignada</p>
-                    @endif
-                </div>
-                <div class="card-icon">
-                    <!-- Agrega el ícono correspondiente -->
+                    <div class="form-group row">
+                        <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $empleado->nombre }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="apellido" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+                        <div class="col-md-6">
+                            <input id="apellido" type="text" class="form-control" name="apellido" value="{{ $empleado->apellido }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="folio" class="col-md-4 col-form-label text-md-right">{{ __('Folio') }}</label>
+                        <div class="col-md-6">
+                            <input id="folio" type="text" class="form-control" name="folio" value="{{ $empleado->folio }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="correo" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
+                        <div class="col-md-6">
+                            <input id="email" type="text" class="form-control" name="email" value="{{ $empleado->email }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                     <label for="foto" class="col-md-4 col-form-label text-md-right">{{ __('Foto') }}</label>
+                      <div class="col-md-6">
+                       <img src="{{ asset('storage/' . $empleado->foto) }}" alt="Foto de perfil" class="img-thumbnail img-fluid" style="max-width: 150px;">
+                       </div>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
-        <!-- Agrega más secciones según tus necesidades -->
     </div>
-</div>
+@endsection

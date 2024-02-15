@@ -1,6 +1,19 @@
 @php
     $user = auth()->user();
+    use Carbon\Carbon;
+    $fechaAlta = $user && $user->empleado && $user->empleado->alta ? new Carbon($user->empleado->alta) : null;
+    $fechaTermino = $user && $user->empleado && $user->empleado->termino ? new Carbon($user->empleado->termino) : null;
+    $diasLaborados = $fechaAlta ? $fechaAlta->diffInDays(Carbon::now()) : 0;
+    if ($fechaTermino && $fechaTermino->isPast()) {
+        $diasLaborados = $fechaAlta->diffInDays($fechaTermino);
+    }
+
     $puesto = $user && $user->empleado ? $user->empleado->puesto : 'No asignado';
+    $departamento = $user && $user->empleado && $user->empleado->departamento ? $user->empleado->departamento->nombreDep : 'No asignado';
+    $horarioEntrada = $user && $user->empleado ? new DateTime($user->empleado->turnoEntrada) : null;
+    $horarioSalida = $user && $user->empleado ? new DateTime($user->empleado->turnoSalida) : null;
+
+    $horarioCompleto = $horarioEntrada && $horarioSalida ? $horarioEntrada->format('H:i') . ' a ' . $horarioSalida->format('H:i') : 'No especificado';
     $fotoPerfilURL = $user->foto ? asset('storage/' . $user->foto) : null;
 @endphp
 <!DOCTYPE html>
@@ -30,7 +43,7 @@
 
         <ul class="menu">
             <li>
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/welcome') }}">
                 <div class="menu-item">
                     <i class="fa-solid fa-home fa-lg"></i>
                     <span class="small-text">Home</span>
@@ -71,12 +84,13 @@
             </li>
 
             <li>
-               <a href="{{ url('perfil') }}"></a>
-               <div class="menu-item">
-               <i class="fa-solid fa-circle-user fa-lg"></i>
-               <span class="small-text">Perfil</span>
-               </div>
-             </li>
+            <a href="{{ route('perfil') }}">
+             <div class="menu-item">
+              <i class="fa-solid fa-circle-user fa-lg"></i>
+              <span class="small-text">Perfil</span>
+             </div>
+            </a>
+            </li>
 
             <li class="logout">
                 <a href="#" onclick="document.getElementById('logout-form').submit()">
@@ -114,7 +128,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-secondary">PUESTO</h5>
                         <p class="card-text"><strong>{{ $puesto }}</strong></p>
-                        <p class="card-text text-secondary">Área de </p>
+                        <p class="card-text text-secondary">Área de {{ $departamento }}</p>
                     </div>
                     <div class="card-icon">
                         <i class="fas fa-id-card-alt text-danger"></i>
@@ -126,7 +140,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-secondary">HORARIO</h5>
                         <strong>Horario:</strong> 
-                        <p class="card-text text-secondary"></p>
+                        <p class="card-text text-secondary">{{ $horarioCompleto }}</p>
                     </div>
                     <div class="card-icon">
                         <i class="fas fa-clock text-orange"></i> 
@@ -263,7 +277,7 @@
         <div class="row mt-4">
             <div class="col-md-3">
                 <p class="info-text">Días laborados</p>
-                <p class="info-number"></p>
+                <p class="info-number">{{ $diasLaborados }}</p>
             </div>
             <div class="col-md-3">
                 <p class="info-text">Ausencias</p>
@@ -279,6 +293,7 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="container-calendar">
     <div class="row">
     <div class="col-md-3">

@@ -23,7 +23,7 @@ Route::get('/ausencia', [AusenciaController::class, 'index'])->name('ausencia.in
 Route::get('/get-attendance-reports', [AsistenciaController::class, 'getAttendanceReports']);
 Route::get('/get-new-records', [EmpleadoController::class, 'getNewRecords']);
 Route::get('/empleado/foto/{id}', [EmpleadoController::class, 'showPhoto'])->name('empleado.photo');
-Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
+
 Route::get('/get-attendance-reports', [EmpleadoController::class, 'getAttendanceReports']);
 //Route::get('/get-notifications', [EmpleadoController::class, 'getNotifications']);
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -32,6 +32,7 @@ Route::get('/get-password/{userId}', [UserController::class, 'getPassword']);
 Route::get('/show-photo/{id}', 'EmpleadoController@showPhoto')->name('show.photo');
 Route::put('/empleado/foto/{id}', 'EmpleadoController@updatePhoto')->name('empleado.update_photo');
 Route::delete('/empleado/foto/{id}', 'EmpleadoController@deletePhoto')->name('empleado.delete_photo');
+Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil')->middleware('auth');
 
 Route::resource('users', UserController::class);
 Route::get('/orboarding', [OrboandingController::class, 'index']);
@@ -54,6 +55,7 @@ Route::view('dashboard', 'dashboard')->middleware('auth');
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('/export/excel', [AsistenciaController::class, 'exportExcel'])->name('export.excel');
 Route::view('welcome', 'welcome')->middleware('auth');
+
 
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
