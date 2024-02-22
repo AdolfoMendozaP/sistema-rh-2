@@ -49,7 +49,7 @@
                 </div>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ url('/estadisticas') }}">
                 <div class="menu-item">
                     <i class="fa-solid fa-chart-column fa-lg"></i>
                     <span class="small-text">Estadisticas</span>

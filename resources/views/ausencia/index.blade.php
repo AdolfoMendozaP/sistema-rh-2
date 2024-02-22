@@ -35,9 +35,9 @@
                             </form>
 
                             <form action="{{ route('ausencia.confirmar', $ausencia->IDausencia) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que deseas confirmar la ausencia con ID {{ $ausencia->IDausencia }}?')">
-                                @csrf
-                                <button type="submit" class="btn btn-success btn-sm" title="Confirmar"><i class="fa-solid fa-check"></i></button>
-                            </form>
+    @csrf
+    <button type="submit" class="btn btn-success btn-sm" title="Confirmar"><i class="fa-solid fa-check"></i></button>
+</form>
 
                             <form action="{{ route('ausencia.denegar', $ausencia->IDausencia) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que deseas denegar la ausencia con ID {{ $ausencia->IDausencia }}?')">
                                 @csrf

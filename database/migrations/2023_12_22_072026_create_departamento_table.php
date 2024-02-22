@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        /**DB::table('departamento')->insert([
+        DB::table('departamento')->insert([
             ['nombreDep' => 'Plant Manager'],
             ['nombreDep' => 'Jefatura'],
             ['nombreDep' => 'Proyect Manager'],
@@ -36,7 +36,7 @@ return new class extends Migration
             ['nombreDep' => 'Psicologia'],
             ['nombreDep' => 'Nutricion'],
         ]);
-        */
+        
     }
     
 

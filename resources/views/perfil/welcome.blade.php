@@ -17,7 +17,7 @@
     <title>Portal de Empleados - Consultacy</title>
 </head>
 <body>
-    <div class="sidebar">
+<div class="sidebar">
         <div class="logo">
             <img src="https://consultancysc.com/wp-content/uploads/2023/08/LogoConsultancyITfinal-150x150.png" alt="Logo Consultancy">
             <div class="logo-text">
@@ -28,7 +28,7 @@
 
         <ul class="menu">
             <li>
-            <a href="{{ url('/welcome') }}">
+                <a href="{{ url('/welcome') }}">
                 <div class="menu-item">
                     <i class="fa-solid fa-home fa-lg"></i>
                     <span class="small-text">Home</span>
@@ -42,9 +42,9 @@
                     <span class="small-text">Vacaciones</span>
                 </div>
             </li>
-
+             
             <li>
-            <a href="{{ url('/orboarding') }}">
+                <a href="{{ url('/orboarding') }}">
                 <div class="menu-item">
                     <i class="fa-solid fa-book fa-lg"></i>
                     <span class="small-text">Onboarding</span>
@@ -75,7 +75,7 @@
               <span class="small-text">Perfil</span>
              </div>
             </a>
-             </li>
+            </li>
 
             <li class="logout">
                 <a href="#" onclick="document.getElementById('logout-form').submit()">
@@ -99,16 +99,57 @@
                 <div class="col-md-6 text-md-end"> 
                     <div class="d-flex align-items-center justify-content-end"> 
                         <p class="mb-0 me-3 no-bold"><span id="clock"></span></p>
-                        <div class="d-flex align-items-center ms-4"> 
-                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Foto de perfil" class="rounded-circle" width="30">
-                            <span class="ms-2">{{ auth()->user()->name }}</span>
-                        </div>
+                        <div class="d-flex align-items-center ms-4">
+                        
+                        <span class="ms-2">{{ auth()->user()->name }}</span>
+                       </div>
                     </div>
                 </div>
             </div>
+    <div class="container mt-5">
+        <div class="row">
+            </div>
         </div>
-@yield('content')
+    </div>
+<div class="container-fluid bg-cream py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Perfil de Empleado</h2>
+            </div>
+            
+            <div class="container">
+                <br>
+            @yield('content')
+    
+</div>
+    </div>
+    <br><br><br>
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-0 text-muted">Copyright © 2024 Consultancy SC</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="mb-0 text-muted">v2.0</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    function actualizarReloj() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+        const formattedDate = now.toLocaleDateString('es-ES', options);
+        document.getElementById('clock-container').innerHTML = `<p>${formattedDate}</p>`;
+    }
+    setInterval(actualizarReloj, 1000);
 
+    $('#exampleModal').on('shown.bs.modal', function () {
+        actualizarReloj();
+    });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{asset('main.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

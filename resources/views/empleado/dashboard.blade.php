@@ -50,11 +50,12 @@
                 </div>
             </li>
             <li>
-                <a href="#"></a>
+                <a href="{{ url('/estadisticas') }}">
                 <div class="menu-item">
                     <i class="fa-solid fa-chart-column fa-lg"></i>
                     <span class="small-text">Estadisticas</span>
                 </div>
+                </a>
             </li>
             <li class="logout">
                <a href="#" onclick="document.getElementById('logout-form').submit()">
@@ -99,7 +100,8 @@
         <div class="col-md-6 ms-auto text-md-end">
 
         <button class="btn btn-purple-light" data-bs-toggle="modal" data-bs-target="#personalModal">Personal</button>
-<div class="modal" id="personalModal" tabindex="-1" role="dialog" aria-labelledby="personalModalLabel" aria-hidden="true">
+
+        <div class="modal" id="personalModal" tabindex="-1" role="dialog" aria-labelledby="personalModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -107,17 +109,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-            <form method="post" action="#">
-        @csrf
-        <div class="mb-3">
-            <label for="contrasena" class="form-label">Introduce la contraseña: </label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
-        </div>
+                <form method="post" action="{{ route('login.personal') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Introduce la contraseña:</label>
+                        <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                    </div>
+                    <!-- Botón de envío dentro del formulario -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-            </div>
-            </form>
         </div>
     </div>
 </div>

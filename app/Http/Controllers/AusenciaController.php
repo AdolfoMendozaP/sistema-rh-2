@@ -55,6 +55,15 @@ class AusenciaController extends Controller
     }
 }
 
+public function confirmarAusencia($id)
+{
+    $ausencia = Ausencia::findOrFail($id);
+    $ausencia->estado = 'confirmado';
+    $ausencia->save();
+
+    return redirect()->back()->with('success', 'Ausencia confirmada correctamente.');
+}
+
 
 }
 

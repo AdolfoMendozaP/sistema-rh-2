@@ -26,7 +26,7 @@
 
         <ul class="menu">
             <li>
-                <a href="">
+                <a href="{{ url('/dashboard') }}">
                 <div class="menu-item">
                 <i class="fa-solid fa-home fa-lg"></i>
                     <span class="small-text">Home</span>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-            <a href="">
+            <a href="{{ url('/asistencia') }}">
             <div class="menu-item">
                 <i class="fa-solid fa-calendar-days fa-lg"></i>
                 <span class="small-text">Asistencias</span>
@@ -43,14 +43,14 @@
     </li>
 
             <li class="active">
-                <a href="{{ url('/personales') }}"></a>
+                <a href="{{ url('/empleado') }}"></a>
                 <div class="menu-item">
                     <i class="fa-solid fa-book fa-lg"></i>
                     <span class="small-text">Registros</span>
                 </div>
             </li>
-            <li>
-                <a href=""></a>
+            <li class="active">
+                <a href="{{ url('/estadisticas') }}"></a>
                 <div class="menu-item">
                     <i class="fa-solid fa-chart-column fa-lg"></i>
                     <span class="small-text">Estadisticas</span>
@@ -94,11 +94,6 @@
 <div class="container">
     <div class="row">
     <div class="col-md-6 ms-auto text-md-end">
-    <a href="#" class="btn btn-purple-light float-md-start">Registrar Datos Personales</a>
-</div>
-        <div class="col-md-6 ms-auto text-md-end">
-
-        <a href="#" class="btn btn-secondary">Empleados</a>
         </div>
     </div>
 </div>

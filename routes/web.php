@@ -11,14 +11,17 @@ use App\Http\Controllers\AusenciaController;
 use App\Http\Controllers\ForgotPasswordController;
 use Laravel\Sanctum\PersonalAccessToken;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\EstadisticasController;
 use Carbon\Carbon;
 
 
 Route::delete('/ausencia/borrar/{id}', [AusenciaController::class, 'borrar'])->name('ausencia.borrar');
-Route::post('/ausencia/confirmar/{id}', [AusenciaController::class, 'confirmar'])->name('ausencia.confirmar');
+Route::post('/ausencia/{id}/confirmar', [AusenciaController::class, 'confirmarAusencia'])->name('ausencia.confirmar');
 Route::post('/ausencia/denegar/{id}', [AusenciaController::class, 'denegar'])->name('ausencia.denegar');
 Route::post('/solicitar-ausencia', [AusenciaController::class, 'solicitarAusencia'])->name('ausencia.solicitar');
+Route::post('login/personal', [UserController::class, 'loginPersonal'])->name('login.personal');
 Route::resource('personales', PersonalController::class);
+Route::get('/estadisticas', [EstadisticasController::class, 'index'])->name('estadisticas.index');
 Route::get('/ausencia', [AusenciaController::class, 'index'])->name('ausencia.index');
 Route::get('/get-attendance-reports', [AsistenciaController::class, 'getAttendanceReports']);
 Route::get('/get-new-records', [EmpleadoController::class, 'getNewRecords']);
@@ -30,6 +33,7 @@ Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkReques
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/get-password/{userId}', [UserController::class, 'getPassword']);
 Route::get('/show-photo/{id}', 'EmpleadoController@showPhoto')->name('show.photo');
+Route::resource('empleado', EmpleadoController::class);
 Route::put('/empleado/foto/{id}', 'EmpleadoController@updatePhoto')->name('empleado.update_photo');
 Route::delete('/empleado/foto/{id}', 'EmpleadoController@deletePhoto')->name('empleado.delete_photo');
 Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil')->middleware('auth');

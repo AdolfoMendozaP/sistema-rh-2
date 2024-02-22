@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Empleado;
 use Laravel\Sanctum\PersonalAccessToken;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -116,6 +117,17 @@ public function index()
 
         return redirect()->route('users.index')->with('success');
     }
+
+    public function loginPersonal(Request $request)
+{
+    $user = Auth::user();
+
+    if ($request->contrasena === $user->password_personal) {
+        return redirect()->route('pagina.personal');
+    }
+
+    return redirect()->back()->with('error', 'Contraseña incorrecta');
+}
 
     public function logout()
     {
